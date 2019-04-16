@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Hello Coursera</title>
+<style>
+ul {
+  list-style: none;
+  display: none;
+  padding: 0px;
+}
+
+li {
+  padding: 5px;
+  border: 1px solid #ccc;
+  color: red;
+}
+
+.remove {
+  color: #aaa;
+  background-color: transparent;
+  border: none;
+  float: right;
+}
+
+</style>
+</head>
+<body>
+    <h1>WORK TO-DOS</h1>
+<h3>Enter Text to add in the list</h3>
+<div id="parentDiv">
+  <input id="inputVal" type="text" value="" placeholder="New Item.." onChange="addToList()" />
+  <ul id="listOfItems"></ul>
+</div>
+</body>
+<script>
+var textInput = document.getElementById("inputVal");
+
+function addToList() {
+  document.getElementById("listOfItems").style.display = "block";
+  var listItem = document.createElement("li");
+  listItem.appendChild(document.createTextNode(textInput.value));
+  document.getElementById("inputVal").value = " ";
+  var button = document.createElement("button");
+  button.innerHTML = "X";
+  button.setAttribute("class", "remove");
+  listItem.appendChild(button);
+  listOfItems.appendChild(listItem);
+
+  var classname = document.getElementById("listOfItems");
+  classname.addEventListener("click", removeClickedImage);
+
+  function removeClickedImage(e) {
+    var el = e.target;
+    var imageContainer;
+    var list;
+    if (el.classList.contains("remove")) {
+      imageContainer = el.parentNode;
+      list = imageContainer.parentNode;
+      list.removeChild(imageContainer);
+    }
+  }
+}
+
+</script>
+</html>
